@@ -1,0 +1,899 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaisei+Decol&family=Noto+Sans+JP:wght@100..900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --text-main-color: #3cce79;
+  --text-accent-main-color: #de534b;
+  --bg-color-main: #171717;
+  --bg-sub-main-color: #2e2e2e;
+  --cb: cubic-bezier(.05, .61, .41, .95);
+
+}
+
+/* global classes */
+.font-noto {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-bar {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-sai {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-kai {
+  font-family: "Kaisei Decol", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-main-color {
+  color: var(--text-main-color);
+}
+
+.text-accent-color {
+  color: var(--text-accent-main-color);
+}
+
+.bg-color-main {
+  background-color: var(--bg-color-main);
+}
+
+.bg-sub-main-color {
+  background-color: var(--bg-sub-main-color);
+}
+
+.font-7 {
+  font-size: 7px;
+}
+
+.font-8 {
+  font-size: 8px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.font-11 {
+  font-size: 11px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-40 {
+  font-size: 40px;
+}
+
+.font-white {
+  color: #ffffff;
+}
+
+.font-main-color {
+  color: var(--text-main-color);
+}
+
+.font-accent-color {
+  color: var(--text-accent-main-color);
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background: var(--bg-sub-main-color);
+
+}
+
+.mobile__container {
+  width: 100%;
+  max-width: 402px !important;
+  margin: 0 auto !important;
+  background: var(--bg-color-main);
+}
+
+/* header start */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 403px;
+  z-index: 1000;
+  padding: 30px 18px;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: var(--bg-color-main);
+  background: rgba(23, 23, 23, 0.45);      
+  backdrop-filter: blur(12px);               
+  -webkit-backdrop-filter: blur(12px);       /* Safari fix */
+  border-bottom: 1px solid rgba(255,255,255,0.08); /* soft edge */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);   
+}
+
+.wetlands__logo {
+  font-weight: 500;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.75;
+}
+
+.wetlands__logo .mid {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.wetlands__logo:hover {
+  text-decoration: none;
+  color: white;
+}
+.navBar__icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+
+.navBar__icon img,
+.navBar__icon i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
+}
+
+
+.navBar__icon img {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.navBar__icon i {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+
+.navBar__icon.active img {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+.navBar__icon.active i {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+
+.navbar__nav {  
+  position: fixed;
+  width: 100%;
+  max-width: 402px;
+  background: var(--bg-color-main);
+  overflow: hidden;
+  height: 0;
+  transform: translateY(-20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.8s ease, transform 0.8s ease;
+  z-index: 999;
+}
+
+.navbar__nav.show {
+  height: 100vh;
+  transform: translateY(0);
+     
+}
+
+.navbar__nav .active {
+  color: var(--text-main-color) !important;
+}
+
+.navbar__nav__start {
+  margin-top: 10rem;
+}
+.navbar__nav a {
+  margin-top: 50px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0s;
+}
+
+body:has(.navbar__nav.show) .nav {
+  box-shadow: none !important;
+}
+
+.navbar__nav.show a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.navbar__nav a:hover {
+  transition: 0.5s ease;
+  text-decoration: none;
+  color: var(--text-main-color);
+}
+
+#landing {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.white-space-nowrap {
+  white-space: nowrap;
+}
+
+#landing .landing__text__middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.jp-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#landing .landing__redCrowned {
+  position: absolute;
+  top: 18%;
+  left: 7%;
+}
+
+#landing .KV__redCrowned {
+  width: 90px;
+  height: 74px;  
+}
+
+#landing .redCrowned__imageWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .redCrowned__name {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .redCrowned__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__asianSunk {
+  position: absolute;
+  top: 15%;
+  right: 16%;
+}
+
+#landing .KV__asianSunk {
+  width: 50px;
+  height: 59px;
+}
+
+#landing .asianSunk__imageWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .asianSunk__name {
+  position: absolute;
+  top: 105%;
+  left: -70%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .asianSunk__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__dragonFly {
+  position: absolute;
+  top: 31%;
+  right: 24%;
+}
+
+#landing .KV__dragonFly {
+  width: 85px;
+  height: 72px;
+}
+
+#landing .dragonFly__imageWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .dragonFly__name {
+  position: absolute;
+  top: 86%;
+  left: -40%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .dragonFly__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .asianSunk__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__fox {
+  position: absolute;
+  top: 57%;
+  left: 23%;
+}
+
+#landing .KV__fox {
+  width: 50px;
+  height: 87px;
+}
+
+#landing .fox__imageWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .fox__name {
+  position: absolute;
+  top: 67%;
+  left: -132%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .fox__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__smallCopper {
+  position: absolute;
+  top: 62%;
+  right: 20%;
+}
+
+#landing .KV__smallCopper {
+  width: 60px;
+  height: 50px;
+  transform: rotate(12deg);
+  transform-origin: top left;
+}
+
+#landing .smallCopper__imageWrapper {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .smallCopper__name {
+  position: absolute;
+  top: 82%;
+  right: -90%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .smallCopper__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__rose {
+  position: absolute;
+  top: 72%;
+  left: 34%;
+}
+
+#landing .KV__rose {
+  width: 60px;
+  height: 67px;
+}
+
+#landing .smallCopper__irose {
+  position: relative;
+  width: fit-content;
+}
+
+#landing .rose__name {
+  position: absolute;
+  top: 90%;
+  right: -73%;
+  background-color: var(--bg-sub-main-color);
+  width: 58px;
+  height: 19px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing .rose__name span {
+  color: #fff;
+  opacity: 30%;
+}
+
+#landing .landing__text__bottom {
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#landing .landing__text__bottom p {
+  color: #c5c5c5;
+  font-weight: 200;
+  line-height: 15px;
+}
+
+#landing .landing__text__bottom img {
+  display: inline-block;
+  animation: upDown 2s infinite ease-in-out;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#landing__bg{
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.50)),url(../images/backgrounds/landing_bg.jpg)  no-repeat center center; 
+  background-size: cover;
+  position: relative;
+}
+
+#landing__bg .landing__bg__text .upper__text{
+  font-weight: 600;
+}
+
+#landing__bg .landing__bg__text .lower__text{
+  font-weight: 400;
+}
+
+#landing__bg .landing__bg__text{
+  white-space: nowrap;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* wetLands__info */
+
+#wetLands__info__bg{ 
+  background:url(../images/backgrounds/dotPattern.png) ;
+  background-size: cover;  
+  z-index: 999;
+}
+#wetLands__info .title{
+  padding: 0px 18px;
+}
+
+.title .eng__title{
+  padding-top: 60px;
+  font-weight: 300;
+}
+
+.title .jpn__title{
+  color: #fff;
+  margin-top: 10px!important;
+  font-weight: 300;
+}
+
+#wetLands__info .wetLands_info__subText{
+  margin-top: 30px!important;
+  color: #c5c5c5;
+  font-weight: 100;
+  line-height: 20px;
+}
+
+#wetLands__info .wetLands__role{
+  padding-left: 18px;
+}
+
+#wetLands__info .wetLands__cards__1 {
+  width: 200px;
+  height: 226px;
+  position: relative;
+  border: 1px solid var(--bg-sub-main-color);
+  border-radius: 20px;    
+  background: rgba(46, 46, 46, 0.2);  
+  margin-top: 55px !important;
+  margin-right: 20px;  
+}
+
+#wetLands__info .wetLands__role__01{
+  border-radius: 10px;
+  width: 32px;
+  height: 26px;
+  position: absolute;
+  top: -6%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: var(--text-main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#wetLands__info .wetLands__role__info{
+  text-align: center;
+  padding-top: 35px;  
+}
+
+#wetLands__info .wetLands__card__title{
+  margin-top: 20px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+#wetLands__info .wetLands__card__details{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 10px;
+  color: #fff;
+  font-weight: 100;
+  line-height: 22px;
+}
+
+#wetLands__info .swiper {
+  padding-bottom: 60px;
+}
+
+#wetLands__info .swiper-pagination {
+  bottom: 10px !important;  
+}
+
+#wetLands__info .swiper-pagination-bullet {
+  background-color: var(--text-main-color);
+}
+
+#wetLands__info .wetLands__intro{
+  margin-top: 60px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  padding-bottom: 60px;
+}
+
+#wetLands__info .wetLands__kushiro__intro{
+  margin-top: 37px; 
+  display: block;
+ 
+}
+
+#wetLands__info .wetLands__kushiro__info{
+   padding-left: 28px!important; 
+   margin-top: -20px!important; 
+}
+
+#wetLands__info .wetLands__kushiro__info .eng__title{
+  margin-top: 8px!important;
+  color: #c5c5c5;
+  font-weight: 100;
+}
+
+#wetLands__info .wetLands__kushiro__info .kushiro__intro__text{
+  margin-top: 18px!important;
+  color: #c5c5c5;
+  font-weight: 100;
+}
+
+#wetLands__info .wetLands__kushiro__danger{
+  margin-top: 40px;
+  padding-left: 28px!important;  
+}
+
+#wetLands__info .wetLands__kushiro__danger h5{
+  font-weight: 30!important; 
+}
+
+#wetLands__info .wetLands__kushiro__danger h5 span{
+  display: inline-block;
+  margin-top: 3px;
+  font-weight: 400;
+  
+}
+
+#wetLands__info .wetLands__kushiro__danger__info{
+  margin-top: 20px;
+}
+
+#wetLands__info .wetLands__kushiro__danger__info .wetLands__kushiro__danger__info_details_2{
+  margin-top: 30px;
+}
+
+
+/* wetLands seasons */
+#wetLands__seasons{
+  padding: 0 18px;
+}
+
+#wetLands__seasons .wetLands_seasons__subText{
+  margin-top: 30px!important;
+  color: #c5c5c5;
+  font-weight: 100;
+  line-height: 20px;
+}
+
+#wetLands__seasons .wetLands__seasons__details{
+  padding: 50px 0px;
+}
+
+#wetLands__seasons .wetLands__seasons__details .wetLands__seasons__cards {
+  display: flex;
+  justify-content: center;  
+}
+  
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card {  
+  position: relative;
+  width: 47px; 
+  height: 209px; 
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),var(--bg); 
+  overflow: hidden; 
+  margin-right: 11px;
+  background-size: auto 100%;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: width 0.5s var(--cb), background-size 0.5s var(--cb);
+}
+
+#wetLands__seasons .wetLands__seasons__card:last-child {
+  margin-right: 0;
+}
+
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card.active {
+  width: 190px; 
+  background-size: auto 100%;
+}
+
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card .info {
+  margin-top: 68px;
+  text-align: center;
+}
+
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card .info .jpn__title{
+  color: #fff;
+  font-weight: 500;
+}
+
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card .info .eng__title{
+  margin-top: 5px!important;
+  color: #c5c5c5;
+ 
+}
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card .info .subText{
+  margin-top: 9px!important;
+  font-weight: 300;
+  color: #fff;
+}
+
+#wetLands__seasons .wetLands__seasons__cards .wetLands__seasons__card .details{
+  color: #fff;
+  position: absolute;
+  bottom: 0%;
+  right: 7%;
+}
+
+.wetLands__seasons__card .subText,
+.wetLands__seasons__card .details {
+  opacity: 0;  
+}
+
+.wetLands__seasons__card.active .subText,
+.wetLands__seasons__card.active .details {
+  opacity: 1;
+  transition: 1s ease;  
+}
+
+/* wetLands-wildLife */
+#wetLands__wildLife{
+  padding-right: 18px;
+  padding-left: 18px; 
+  padding-bottom: 50px;
+  background: rgba(60, 206, 121, 0.1);
+}
+
+#wetLands__wildLife .wetLands__wildLife__info{
+  margin-top: 50px!important;
+}
+
+#wetLands__wildLife .wetLands__wildLife__info .wetLands__wildLife__info__cards{  
+  display: flex;
+}
+
+#wetLands__wildLife .wetLands__wildLife__info .wetLands__wildLife__info__card__1{
+  margin-right: 20px;
+  background:var(--bg-color-main);
+  width: 124px;
+  height: 148px;
+  border-radius: 10px;
+  padding-left: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+#wetLands__wildLife .wetLands__wildLife__info .card__1__img{
+  width: 80px;
+  height: 66px;  
+  position: absolute;
+  top: -20%;
+  left: 17%;
+  transition: 1s ease;
+  
+}
+
+#wetLands__wildLife .wetLands__wildLife__info__card__1__title{
+  margin-top: 30px;
+}
+
+#wetLands__wildLife .wetLands__wildLife__info .jpn__text{
+  color: #fff;
+  font-weight: 450;
+  }
+
+#wetLands__wildLife .wetLands__wildLife__info .eng__text{
+  color: #c5c5c5;
+  font-weight: 100;
+  }
+
+#wetLands__wildLife .wetLands__wildLife__info__cards__buttons .btn__1{
+  margin-right: 2px;
+  background-color: var(--bg-color-main);
+  width: 40px;
+  height: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--bg-sub-main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#wetLands__wildLife .wetLands__wildLife__info__cards__buttons .btn__2{
+  margin-right: 2px;
+  background-color: var(--text-accent-main-color);
+  width: 60px;
+  height: 14px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#wetLands__wildLife .btn__3{
+  border: none;
+  background: none;
+  text-align: center;
+  margin-top: 17px; 
+  cursor: pointer;
+  }
+
+
+#wetLands__wildLife .wetLands__wildLife__info__card__1:hover .card__1__img{ 
+  cursor: pointer;
+  transform: translateY(-10px); 
+}
+
+#wetLands__wildLife .wetLands__wildLife__info .wetLands__wildLife__info__card__1:hover{
+  cursor: pointer;
+  transition: 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+}
+
+#wetLands__wildLife .wetLands__wildLife__explore{
+  margin-top: 50px;
+}
+#wetLands__wildLife .wetLands__wildLife__explore .wetLands__wildLife__explore__title{
+  color: #fff;
+  font-weight: 300;
+}
+#wetLands__wildLife .wetLands__wildLife__explore .wetLands__wildLife__explore__info{
+  margin-top: 25px!important;
+}
