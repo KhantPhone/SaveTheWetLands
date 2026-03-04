@@ -1,0 +1,563 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kaisei+Decol&family=Noto+Sans+JP:wght@100..900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --text-main-color: #3cce79;
+  --text-accent-main-color: #de534b;
+  --bg-color-main: #171717;
+  --bg-sub-main-color: #2e2e2e;
+  --cb: cubic-bezier(.05, .61, .41, .95);
+
+}
+
+/* global classes */
+.font-noto {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-bar {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-sai {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-kai {
+  font-family: "Kaisei Decol", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-main-color {
+  color: var(--text-main-color);
+}
+
+.text-accent-color {
+  color: var(--text-accent-main-color);
+}
+
+.bg-color-main {
+  background-color: var(--bg-color-main);
+}
+
+.bg-sub-main-color {
+  background-color: var(--bg-sub-main-color);
+}
+
+.font-7 {
+  font-size: 7px;
+}
+
+.font-8 {
+  font-size: 8px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.font-11 {
+  font-size: 11px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-40 {
+  font-size: 40px;
+}
+
+.font-white {
+  color: #ffffff;
+}
+
+.font-main-color {
+  color: var(--text-main-color);
+}
+
+.font-accent-color {
+  color: var(--text-accent-main-color);
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background: var(--bg-sub-main-color);
+
+}
+
+.mobile__container {
+  width: 100%;
+  max-width: 402px !important;
+  margin: 0 auto !important;
+  background: var(--bg-color-main);
+}
+
+/* header start */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 402px;
+  z-index: 1000; 
+  display: flex;  
+  justify-content: space-between;  
+  padding:31px 18px 28px 18px;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  background-color: var(--bg-color-main);
+  background: rgba(23, 23, 23, 0.45);      
+  backdrop-filter: blur(12px);               
+  -webkit-backdrop-filter: blur(12px); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);   
+}
+
+.nav .wetlands__logo {
+  font-weight: 500;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.75;
+}
+
+.nav .wetlands__logo .mid {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.nav .wetlands__logo:hover {
+  text-decoration: none;
+  color: white;
+}
+.navBar__icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+
+.navBar__icon img,
+.navBar__icon i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
+}
+
+
+.navBar__icon img {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.navBar__icon i {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+
+.navBar__icon.active img {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+.navBar__icon.active i {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+
+.navbar__nav {  
+  position: fixed;
+  width: 100%;
+  max-width: 402px;
+  background: var(--bg-color-main);
+  overflow: hidden;
+  height: 0;
+  transform: translateY(-20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.8s ease, transform 0.8s ease;
+  z-index: 999;  
+}
+
+.navbar__nav.show {
+  height: 100vh;
+  transform: translateY(0);
+     
+}
+
+.navbar__nav .active {
+  color: var(--text-main-color) !important;
+}
+
+.navbar__nav__start {
+  margin-top: 10rem;
+}
+.navbar__nav a {
+  margin-top: 50px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0s;
+}
+
+body:has(.navbar__nav.show) .nav {
+  box-shadow: none !important;
+}
+
+.navbar__nav.show a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.navbar__nav a:hover {
+  transition: 0.5s ease;
+  text-decoration: none;
+  color: var(--text-main-color);
+}
+
+/* wildLife__details */
+#wildLife__details{
+    padding-top: 182px;
+    padding-left: 49px;
+}
+
+#wildLife__details .wildLife__details{    
+    background: rgba(60, 206, 121, 0.1);
+    padding-top:61px;
+    padding-bottom: 49px;
+    border-radius: 50px 0px 0px 50px;
+}
+
+#wildLife__details .wildLife__details__title{
+  padding-left: 148px;
+  position: relative;
+}
+
+#wildLife__details .wildLife__details__title h5{
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#wildLife__details .wildLife__details__title span{
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-main-color);
+}
+
+#wildLife__details .wildLife__details__title h6{
+  color: #c5c5c5;
+  font-weight: 100;
+}
+
+#wildLife__details .btn__1{
+  margin-right: 2px;
+  background-color: var(--bg-color-main);
+  width: 40px;
+  height: 14px;
+  border-radius: 10px;
+  border: none;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#wildLife__details .btn__2{
+  margin-right: 2px;
+  background-color: var(--text-accent-main-color);
+  width: 60px;
+  height: 14px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#wildLife__details .wildLife__details__text{
+  margin-top: 33px;
+  padding-left: 16px;
+  padding-right: 21px;
+}
+
+#wildLife__details .wildLife__details__text p{
+  color: #ffffff;
+  font-weight: 250;
+  line-height: 23px;
+  letter-spacing: 0.03em;
+}
+
+#wildLife__details .wildLife__details__img{
+    width: 210px;
+    height: 172px;
+    position: absolute;
+    top: -138%;
+    left: 0%;
+}
+
+#wildLife__details__info h5{
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+}
+
+#wildLife__details__info .wildLife__details__info__img{
+  margin-top: 25px;
+  display: flex;
+  padding: 0 28px 0px 28px;  
+}
+
+#wildLife__details__info .wildLife__details__info__img img{
+  width: 109px;
+  height: 160px;
+  border-radius: 3px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+
+
+#wildLife__details__info .wildLife__details__info__cards{
+  margin-top: 37px;
+  padding: 0 28px;
+
+}
+
+#wildLife__details__info .wildLife__details__info__card{  
+  width: 169px;
+  height: 100px;
+  background-color: var(--bg-color-main);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#wildLife__details__info .wildLife__details__info__title p {
+  background: linear-gradient(
+    180deg,
+    rgba(174, 213, 129, 1) 0%,
+    rgba(129, 199, 132, 1) 20.67%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700; 
+}
+
+#wildLife__details__info .wildLife__details__info__title h6{  
+  margin-top: 10px;
+  color: #fff;
+  font-weight: 200;
+}
+
+#wildLife__details__info .wildLife__details__info__cards__2{
+  margin-top: 30px;
+}
+
+/* ending */
+.ending__line{
+  border: 1px solid #2e2e2e;
+}
+
+/* next__wildLife__details */
+
+#next__wildLife__details{
+  position: relative;
+  display: flex;
+  padding: 80px 0px 55px 0px;
+}
+
+#next__wildLife__details .next__left{
+  background: rgba(60, 206, 121, 0.2);
+  width: 176px;
+  height: 139px;
+  border-radius: 0px 50px 50px 0px;
+  margin-right: 17px;
+}
+
+#next__wildLife__details .next__left img{
+  position: absolute;
+  top: 15%;
+  left: 13%;
+  width: 96px;
+  height: 167px;
+}
+
+#next__wildLife__details .next__right h3{
+  font-size: 16px;
+  color: #fff!important;
+  font-weight: 400;
+}
+
+#next__wildLife__details .next__right h6{
+  color: #ffffff;
+  font-weight: 300;
+}
+
+#next__wildLife__details .next__right span {
+  background: linear-gradient(
+    180deg,
+    rgba(174, 213, 129, 1) 0%,
+    rgba(129, 199, 132, 1) 20.67%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+#next__wildLife__details .next__right .d-flex{
+  margin-top: 22px!important ;
+}
+
+#next__wildLife__details .btn__1{
+  margin-right: 2px;
+  background-color: var(--bg-color-main);
+  width: 40px;
+  height: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--bg-sub-main-color);  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#next__wildLife__details .btn__2{
+  margin-right: 2px;
+  background-color: var(--text-accent-main-color);
+  width: 60px;
+  height: 14px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#next__wildLife__details .btn__3{  
+  margin-top: 21px;
+  background: rgba(60, 206, 121, 0.2);
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 350;
+  }
+
+#next__wildLife__details .btn__3 img{
+  margin-top: 3px!important;
+  margin-left: 3px;
+}
+
+/* footer */
+
+footer{
+  padding: 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .wetlands__logo {
+  font-weight: 500;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.75;
+}
+
+footer .wetlands__logo .mid {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+footer .wetlands__logo:hover {
+  text-decoration: none;
+  color: white;
+}
+
+footer .footer__nav{
+  margin-top: 39px;
+  text-align: center;
+}
+
+footer .footer__nav a{
+  font-size: 14px;
+  font-weight: 350;
+  display: block;
+  margin-top: 25px;
+  text-decoration: underline;  
+  transition: 0.5s ease;
+}
+
+footer .footer__nav a:hover {
+  text-decoration: none;
+  color: var(--text-main-color);
+}
+
+
+footer .footer__media{
+  margin-top: 35px;
+}
+
+footer .footer__copyRight{
+  margin-top: 40px;
+  color: #c5c5c5;
+  font-weight: 100;
+}
